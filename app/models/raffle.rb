@@ -11,6 +11,7 @@
 #  updated_at  :datetime         not null
 #
 class Raffle < ApplicationRecord
+  has_many :tickets, dependent: :destroy
   validates :name, :amount, :quantity, presence: true
   validates :quantity, numericality: true
 end

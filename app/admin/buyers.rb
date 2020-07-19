@@ -1,18 +1,12 @@
-ActiveAdmin.register Raffle do
+ActiveAdmin.register Buyer do
   permit_params :name, :amount, :quantity
 
   index do
     selectable_column
     id_column
     column :name
-    column :amount do |f|
-      number_to_currency(f.amount, unit: "S/.", format: "%u %n")
-    end
-
+    column :amount
     column :quantity
-    column I18n.t('active_admin.ticket.sold') do |f|
-      f.tickets.size
-    end
     actions
   end
 

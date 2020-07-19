@@ -1,0 +1,4 @@
+es:
+  active_admin:
+    ticket:
+      sold: "Total de tickets vendidos"

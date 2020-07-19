@@ -38,7 +38,7 @@ RSpec.describe Buyer, type: :model do
 
   describe '#relations' do
     it { should belong_to(:raffle) }
-    it { should have_many(:tickets) }
+    it { should have_many(:tickets).dependent(:destroy) }
   end
 
   describe '#enums' do

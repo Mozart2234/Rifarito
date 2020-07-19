@@ -29,7 +29,7 @@ class Buyer < ApplicationRecord
   attribute :status, :integer, default: 0
 
   belongs_to :raffle
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
   validates :code, :name, :status, :total, :type_of_payment, presence: true
 
   enum status: {
