@@ -1,0 +1,12 @@
+es:
+  activerecord:
+    models:
+      admin_user:
+        one: "Usuario administrador"
+        other: "Usuarios administradores"
+    attributes:
+      admin_user:
+        email: "Correo Electrónico"
+        current_sign_in_at: "Última fecha de ingreso"
+        created_at: "Fecha de creación"
+        sign_in_count: "Total de ingresos"

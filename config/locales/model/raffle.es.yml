@@ -1,0 +1,12 @@
+es:
+  activerecord:
+    models:
+      raffle:
+        one: "Rifa"
+        other: "Rifas"
+    attributes:
+      raffle:
+        name: "Nombre"
+        amount: "Monto"
+        quantity: "Cantidad"
+        created_at: "Fecha de creación"
