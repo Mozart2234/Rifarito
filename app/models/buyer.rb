@@ -28,6 +28,7 @@
 #
 class Buyer < ApplicationRecord
   attribute :status, :integer, default: 0
+  has_one_attached :voucher
 
   belongs_to :raffle
   has_many :tickets, dependent: :destroy

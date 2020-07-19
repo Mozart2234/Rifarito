@@ -20,7 +20,11 @@ ActiveAdmin.register Buyer do
     column :code
     column :code_operation
     column :phone_number
-    column :status
+
+    column :status do |buyer|
+      I18n.t("activerecord.attributes.buyer.statuses.#{buyer.status}")
+    end
+
     column :type_of_payment
     column :voucher
 
@@ -47,7 +51,7 @@ ActiveAdmin.register Buyer do
       f.input :date_of_payment, as: :date_time_picker
       f.input :date_of_verified, as: :date_time_picker
 
-      f.input :status, collection: Buyer.statuses.map {|value, key| [I18n.t("activerecord.attributes.buyer/status.#{value}"), value] }
+      f.input :status, collection: Buyer.statuses.map {|value, key| [I18n.t("activerecord.attributes.buyer.statuses.#{value}"), value] }
       f.input :type_of_payment
       f.input :voucher
 
