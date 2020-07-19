@@ -5,7 +5,7 @@ ActiveAdmin.register Raffle do
     selectable_column
     id_column
     column :name
-    coulms :amount
+    column :amount
     column :quantity
     actions
   end
