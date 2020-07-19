@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_19_160409) do
+ActiveRecord::Schema.define(version: 2020_07_19_183651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,14 +55,8 @@ ActiveRecord::Schema.define(version: 2020_07_19_160409) do
     t.bigint "raffle_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantity", default: 1
     t.index ["raffle_id"], name: "index_buyers_on_raffle_id"
-  end
-
-  create_table "polls", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "raffles", force: :cascade do |t|
@@ -76,11 +70,11 @@ ActiveRecord::Schema.define(version: 2020_07_19_160409) do
 
   create_table "tickets", force: :cascade do |t|
     t.integer "num"
-    t.boolean "sold", default: true
+    t.boolean "sold", default: false
     t.bigint "raffle_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "buyer_id", null: false
+    t.bigint "buyer_id"
     t.index ["buyer_id"], name: "index_tickets_on_buyer_id"
     t.index ["raffle_id"], name: "index_tickets_on_raffle_id"
   end

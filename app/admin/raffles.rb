@@ -11,7 +11,7 @@ ActiveAdmin.register Raffle do
 
     column :quantity
     column I18n.t('active_admin.ticket.sold') do |f|
-      f.tickets.size
+      f.tickets.where(sold: true).size
     end
     actions
   end
@@ -22,6 +22,7 @@ ActiveAdmin.register Raffle do
   filter :created_at
 
   form do |f|
+    f.semantic_errors *f.object.errors.keys
     f.inputs do
       f.input :name
       f.input :amount
@@ -29,4 +30,5 @@ ActiveAdmin.register Raffle do
     end
     f.actions
   end
+
 end

@@ -9,6 +9,7 @@
 #  date_of_verified :datetime
 #  name             :string
 #  phone_number     :string
+#  quantity         :integer          default(1)
 #  status           :integer
 #  total            :decimal(, )
 #  type_of_payment  :integer
@@ -29,11 +30,11 @@ require 'rails_helper'
 
 RSpec.describe Buyer, type: :model do
   describe '#validations' do
-    it { should validate_presence_of(:code) }
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:status) }
     it { should validate_presence_of(:total) }
     it { should validate_presence_of(:type_of_payment) }
+    it { should validate_presence_of(:quantity) }
   end
 
   describe '#relations' do
@@ -45,4 +46,5 @@ RSpec.describe Buyer, type: :model do
     it { should define_enum_for(:status).with_values([:pending, :verified]) }
     it { should define_enum_for(:type_of_payment).with_values([:bcp, :bbva, :yape]) }
   end
+
 end

@@ -4,10 +4,10 @@
 #
 #  id         :bigint           not null, primary key
 #  num        :integer
-#  sold       :boolean          default(TRUE)
+#  sold       :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  buyer_id   :bigint           not null
+#  buyer_id   :bigint
 #  raffle_id  :bigint           not null
 #
 # Indexes
@@ -21,7 +21,8 @@
 #  fk_rails_...  (raffle_id => raffles.id)
 #
 class Ticket < ApplicationRecord
-  validates :num, :sold, presence: true
+  validates :num, presence: true
+  validates :num, uniqueness: { scope: :raffle_id }
   belongs_to :raffle
-  belongs_to :buyer
+  belongs_to :buyer, optional: true
 end

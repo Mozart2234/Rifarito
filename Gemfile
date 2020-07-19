@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin', '~> 2.7'
+gem 'activeadmin_addons', '~> 1.7', '>= 1.7.1'
 
 gem 'devise', '~> 4.7', '>= 4.7.2'
 # Use Active Storage variant
@@ -49,6 +50,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate', '~> 3.1', '>= 3.1.1'
+  gem 'rails-erd', '~> 1.6'
 end
 
 group :test do

@@ -4,10 +4,10 @@
 #
 #  id         :bigint           not null, primary key
 #  num        :integer
-#  sold       :boolean          default(TRUE)
+#  sold       :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  buyer_id   :bigint           not null
+#  buyer_id   :bigint
 #  raffle_id  :bigint           not null
 #
 # Indexes
@@ -25,11 +25,16 @@ require 'rails_helper'
 RSpec.describe Ticket, type: :model do
   describe '#validations' do
     it { should validate_presence_of(:num) }
-    it { should validate_presence_of(:sold) }
+    it { should allow_value(nil).for(:sold) }
+    context "unique number ticket" do
+      before { create(:raffle) }
+
+      it { should validate_uniqueness_of(:num).scoped_to(:raffle_id) }
+    end
   end
 
   describe '#relations' do
     it { should belong_to(:raffle) }
-    it { should belong_to(:buyer) }
+    it { should belong_to(:buyer).optional }
   end
 end

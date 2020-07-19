@@ -24,4 +24,11 @@ RSpec.describe Raffle, type: :model do
   describe '#relations' do
     it { should have_many(:tickets).dependent(:destroy) }
   end
+
+  context 'When a raffle in created, generate a total quantity' do
+    let (:raffle) { create(:raffle) }
+    it {
+      expect(raffle.tickets.size).to eq(raffle.quantity)
+    }
+  end
 end

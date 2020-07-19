@@ -4,10 +4,10 @@
 #
 #  id         :bigint           not null, primary key
 #  num        :integer
-#  sold       :boolean          default(TRUE)
+#  sold       :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  buyer_id   :bigint           not null
+#  buyer_id   :bigint
 #  raffle_id  :bigint           not null
 #
 # Indexes

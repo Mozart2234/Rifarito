@@ -9,6 +9,7 @@
 #  date_of_verified :datetime
 #  name             :string
 #  phone_number     :string
+#  quantity         :integer          default(1)
 #  status           :integer
 #  total            :decimal(, )
 #  type_of_payment  :integer

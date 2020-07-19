@@ -5,9 +5,20 @@ es:
         one: "Comprador"
         other: "Compradores"
     attributes:
-      raffle:
+      buyer:
+        code: "Código"
+        code_operation: "Código de operacion"
+        date_of_payment: "Fecha de Pago"
+        date_of_verified: "Fecha de verificación"
         name: "Nombre"
-        amount: "Monto"
-        quantity: "Cantidad"
-        date_finish: "Fecha de finalización"
+        phone_number: "Celular"
+        status: "Estado"
+        total: "Total"
+        type_of_payment: "Tipo de pago"
+        voucher: "Voucher"
         created_at: "Fecha de creación"
+        quantity: "Cantidad"
+        raffle: "Rifa"
+      buyer/status:
+        pending: "Pendiente"
+        verified: "Veríficado"
