@@ -2,8 +2,9 @@ class CreateTickets < ActiveRecord::Migration[6.0]
   def change
     create_table :tickets do |t|
       t.integer :num
-      t.references :raffle, null: false, foreign_key: true
+      t.boolean :sold, default: true
 
+      t.references :raffle, null: false, foreign_key: true
       t.timestamps
     end
   end
