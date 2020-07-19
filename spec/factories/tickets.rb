@@ -7,14 +7,17 @@
 #  sold       :boolean          default(TRUE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  buyer_id   :bigint           not null
 #  raffle_id  :bigint           not null
 #
 # Indexes
 #
+#  index_tickets_on_buyer_id   (buyer_id)
 #  index_tickets_on_raffle_id  (raffle_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (buyer_id => buyers.id)
 #  fk_rails_...  (raffle_id => raffles.id)
 #
 FactoryBot.define do

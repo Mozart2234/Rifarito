@@ -38,10 +38,11 @@ RSpec.describe Buyer, type: :model do
 
   describe '#relations' do
     it { should belong_to(:raffle) }
+    it { should have_many(:tickets) }
   end
 
   describe '#enums' do
     it { should define_enum_for(:status).with_values([:pending, :verified]) }
-    it { should define_enum_form(:type_of_payment).with_values([:bcp, :bbva, :yape]) }
+    it { should define_enum_for(:type_of_payment).with_values([:bcp, :bbva, :yape]) }
   end
 end

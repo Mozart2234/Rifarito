@@ -38,5 +38,6 @@ FactoryBot.define do
     voucher { "" }
     code_operation { Faker::Alphanumeric.alpha(number: 10) }
     raffle
+    buyer
   end
 end

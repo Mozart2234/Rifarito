@@ -26,4 +26,20 @@
 #  fk_rails_...  (raffle_id => raffles.id)
 #
 class Buyer < ApplicationRecord
+  attribute :status, :integer, default: 0
+
+  belongs_to :raffle
+  has_many :tickets
+  validates :code, :name, :status, :total, :type_of_payment, presence: true
+
+  enum status: {
+    pending: 0,
+    verified: 1
+  }
+
+  enum type_of_payment: {
+    bcp: 0,
+    bbva: 1,
+    yape: 2
+  }
 end

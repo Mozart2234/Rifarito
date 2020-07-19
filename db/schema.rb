@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_19_152312) do
+ActiveRecord::Schema.define(version: 2020_07_19_160409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,9 +80,12 @@ ActiveRecord::Schema.define(version: 2020_07_19_152312) do
     t.bigint "raffle_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "buyer_id", null: false
+    t.index ["buyer_id"], name: "index_tickets_on_buyer_id"
     t.index ["raffle_id"], name: "index_tickets_on_raffle_id"
   end
 
   add_foreign_key "buyers", "raffles"
+  add_foreign_key "tickets", "buyers"
   add_foreign_key "tickets", "raffles"
 end
