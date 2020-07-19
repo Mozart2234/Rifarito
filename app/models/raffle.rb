@@ -12,5 +12,5 @@
 #
 class Raffle < ApplicationRecord
   validates :name, :amount, :quantity, presence: true
-  validates :quantity, length: { in: 1..2000 }
+  validates :quantity, numericality: true
 end
