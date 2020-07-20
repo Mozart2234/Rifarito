@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :raffles, only: [:index, :show] do
-      resources :tickets, only: [:index, :show]
+      resources :tickets , only: [:index, :show]
+      resources :buyers, only: [:index, :show]
     end
   end
 end
